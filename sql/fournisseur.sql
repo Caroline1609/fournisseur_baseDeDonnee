@@ -78,7 +78,7 @@ GROUP BY articles.codeA, nomA;
 SELECT 
 articles.codeA, 
 nomA, 
--- TOUS LES FOURNISSEURS dans une colonne, 
+GROUP_CONCAT(nomF), 
 rayon.nomR, 
 etage, 
 codeEmpl, 
@@ -90,11 +90,18 @@ INNER JOIN rayon ON rayon.nomR = articles.nomR
 INNER JOIN employe ON employe.nomR = rayon.nomR
 ;
 
+
+
+
+
+
 /*
 SELECT CONCAT(codeA, '-', nomA, ' ', nomR) FROM articles;
 
 
 SELECT CONCAT(codeA, '-', nomA, ' ', (SELECT etage FROM rayon WHERE rayon.nomR = articles.nomR)) FROM articles;
+
+
 
 
 SELECT CONCAT('Bonjour', ' ', 'les', ' ', 'DWWM');
